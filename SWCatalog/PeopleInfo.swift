@@ -42,4 +42,18 @@ struct PeopleResponse : Codable {
         }
         .resume()
     }
+    
+    static func fetch(id: Int, complationHandler : @escaping (PeopleInfo) -> Void) {
+        URLSession.shared.dataTask(with: peopleAPI.appendingPathComponent(String(id))) {(data, response, error) in
+            guard error == nil, let d = data else { return }
+            do {
+                let resp = try JSONDecoder().decode(PeopleInfo.self, from: d)
+                complationHandler(resp)
+            } catch let error {
+                print(error)
+                return
+            }
+        }
+        .resume()
+    }
 }

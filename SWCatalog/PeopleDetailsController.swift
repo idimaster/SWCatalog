@@ -22,13 +22,23 @@ class PersonStarshipViewCell: UITableViewCell {
 
 class PeopleDetailsController: UIViewController, UITableViewDataSource {
     var data : [(String, String?)] = []
-    var info : PeopleInfo?
+    var info : PeopleInfo? {
+        didSet {
+            DispatchQueue.main.async {
+                self.buildData()
+                self.details.reloadData()
+                self.activity.stopAnimating()
+            }
+        }
+    }
     var descriptors = ["Information", "Homeworld", "Starships"]
     
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var details: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activity.startAnimating()
         self.buildData()
         details.dataSource = self
     }

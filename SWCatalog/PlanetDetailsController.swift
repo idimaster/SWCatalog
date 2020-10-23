@@ -7,41 +7,90 @@
 
 import UIKit
 
-class PlanetDetailsController: UIViewController {
-    
+class PlanetViewCell: UITableViewCell {
+    @IBOutlet weak var key: UILabel!
+    @IBOutlet weak var value: UILabel!
+}
+
+class PlanetResidentViewCell: UITableViewCell {
+    @IBOutlet weak var resident: UIButton!
+}
+
+class PlanetDetailsController: UIViewController, UITableViewDataSource {
+    var descriptors = ["Information", "Residents"]
+    var data : [(String, String?)] = []
     var info : PlanetInfo? {
         didSet {
             DispatchQueue.main.async {
-                self.bind()
+                self.buildData()
+                self.details.reloadData()
             }
         }
     }
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var population: UILabel!
-    @IBOutlet weak var diameter: UILabel!
-    @IBOutlet weak var gravity: UILabel!
+    @IBOutlet var details: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bind()
+        self.buildData()
+        details.dataSource = self
     }
     
-    func bind() {
-        self.name.text = self.info?.name
-        self.population.text = self.info?.population
-        self.diameter.text = self.info?.diameter
-        self.gravity.text = self.info?.gravity
+    func buildData() {
+        data = [];
+        data.append(("Name:", info?.name))
+        data.append(("Rotation period:", info?.rotation_period))
+        data.append(("Orbital period:", info?.orbital_period))
+        data.append(("Diameter:", info?.diameter))
+        data.append(("Climate:", info?.climate))
+        data.append(("Gravity:", info?.gravity))
+        data.append(("Terrain:", info?.terrain))
+        data.append(("Surface water:", info?.surface_water))
+        data.append(("Population:", info?.population))
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return data.count
+     
+        default:
+            return info?.residents.count ?? 0
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return descriptors.count
+     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return descriptors[section]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "KeyValue", for: indexPath) as! PlanetViewCell
+         
+            // set the text from the data model
+            cell.key.text = self.data[indexPath.row].0
+            cell.value.text = self.data[indexPath.row].1
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Residents", for: indexPath) as! PlanetResidentViewCell
+            let path = self.info?.residents[indexPath.row].lastPathComponent ?? "0"
+            cell.resident.tag = Int(path) ?? 0
+            return cell
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "PeopleDetails") {
+            let destinationVC = segue.destination as! PeopleDetailsController
+            let button = sender as! UIButton
+            PeopleResponse.fetch(id: button.tag, complationHandler: { (resp) in
+                destinationVC.info = resp
+            })
+        }
     }
-    */
-
 }

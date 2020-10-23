@@ -40,16 +40,16 @@
             </objects>
             <point key="canvasLocation" x="2744.9275362318845" y="-360.26785714285711"/>
         </scene>
-        <!--People Details Controller-->
+        <!--People-->
         <scene sceneID="JLo-LS-xvG">
             <objects>
                 <viewController id="fcE-NN-H5d" customClass="PeopleDetailsController" customModule="SWCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lLc-US-V46">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5un-TD-sjx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="671"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -125,12 +125,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="hg1-Ki-X4U">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Co-bk-fM6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="itb-JG-2ds"/>
+                    <navigationItem key="navigationItem" title="People" id="itb-JG-2ds"/>
                     <connections>
+                        <outlet property="activity" destination="hg1-Ki-X4U" id="BDM-zX-qAl"/>
                         <outlet property="details" destination="5un-TD-sjx" id="6RB-Mg-Z5K"/>
                     </connections>
                 </viewController>
@@ -175,11 +180,11 @@
             <objects>
                 <viewController id="rIP-is-k5Z" customClass="StarshipDetailsController" customModule="SWCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ccq-Zf-PLC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bpe-ce-bHV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="671"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -231,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="4207.2463768115949" y="973.66071428571422"/>
         </scene>
-        <!--Planets View Controller-->
+        <!--Starships-->
         <scene sceneID="rkr-ol-Zga">
             <objects>
                 <tableViewController id="Xp8-0y-9hb" customClass="PlanetsViewController" customModule="SWCatalog" customModuleProvider="target" sceneMemberID="viewController">
@@ -254,7 +259,7 @@
                             <outlet property="delegate" destination="Xp8-0y-9hb" id="4lv-zN-SXU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="elL-cT-x3U"/>
+                    <navigationItem key="navigationItem" title="Starships" id="elL-cT-x3U"/>
                     <connections>
                         <segue destination="kfH-Wj-HAx" kind="show" identifier="PlanetDetails" id="ftZ-66-JgU"/>
                     </connections>
@@ -267,11 +272,74 @@
         <scene sceneID="bgy-ND-CMS">
             <objects>
                 <viewController id="kfH-Wj-HAx" customClass="PlanetDetailsController" customModule="SWCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ooj-nc-me3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KeyValue" id="SF7-2y-6Z5" customClass="PlanetViewCell" customModule="SWCatalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SF7-2y-6Z5" id="Q0z-Ve-Raq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFX-35-zh0">
+                                            <rect key="frame" x="129" y="11" width="270" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8Z-tZ-lMB">
+                                            <rect key="frame" x="8" y="11" width="113" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="key" destination="j8Z-tZ-lMB" id="Hfs-La-tQU"/>
+                                    <outlet property="value" destination="hFX-35-zh0" id="vtP-3y-s8M"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Residents" id="ii1-eh-Bpf" customClass="PlanetResidentViewCell" customModule="SWCatalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ii1-eh-Bpf" id="fKf-zH-rHR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-q7-6DX">
+                                            <rect key="frame" x="20" y="7" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Resident"/>
+                                            <connections>
+                                                <segue destination="fcE-NN-H5d" kind="show" identifier="PeopleDetails" id="NSc-zq-Dnr"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="resident" destination="1GF-q7-6DX" id="7YF-Qb-SjC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Planets" id="EhB-VB-Ucy"/>
+                    <connections>
+                        <outlet property="details" destination="Ooj-nc-me3" id="NLu-h8-xLn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHb-Iu-4uV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="REQ-A2-rvm">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="3582.608695652174" y="301.33928571428572"/>
+            <point key="canvasLocation" x="3578" y="302"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kf9-2H-eZU">
@@ -353,6 +421,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="dF0-aY-HpL"/>
         <segue reference="tu7-fs-Nfp"/>
+        <segue reference="NSc-zq-Dnr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
