@@ -15,6 +15,15 @@
 		F628BA5025422CE3000F42B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F628BA4E25422CE3000F42B9 /* LaunchScreen.storyboard */; };
 		F628BA5B25422CE4000F42B9 /* SWCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA5A25422CE4000F42B9 /* SWCatalogTests.swift */; };
 		F628BA6625422CE4000F42B9 /* SWCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA6525422CE4000F42B9 /* SWCatalogUITests.swift */; };
+		F628BA872542315D000F42B9 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA862542315D000F42B9 /* PlanetsViewController.swift */; };
+		F628BA8C25423173000F42B9 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA8B25423173000F42B9 /* PeopleViewController.swift */; };
+		F628BA9125423357000F42B9 /* StarshipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA9025423357000F42B9 /* StarshipsViewController.swift */; };
+		F628BA96254233E8000F42B9 /* PeopleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA95254233E8000F42B9 /* PeopleInfo.swift */; };
+		F628BA9B25424103000F42B9 /* StarshipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA9A25424102000F42B9 /* StarshipInfo.swift */; };
+		F628BAA025424116000F42B9 /* PlanetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BA9F25424116000F42B9 /* PlanetInfo.swift */; };
+		F628BAA52542485C000F42B9 /* PeopleDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BAA42542485B000F42B9 /* PeopleDetailsController.swift */; };
+		F628BAAA25424E77000F42B9 /* StarshipDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BAA925424E77000F42B9 /* StarshipDetailsController.swift */; };
+		F628BAAF25424E8E000F42B9 /* PlanetDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BAAE25424E8E000F42B9 /* PlanetDetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		F628BA6125422CE4000F42B9 /* SWCatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWCatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F628BA6525422CE4000F42B9 /* SWCatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCatalogUITests.swift; sourceTree = "<group>"; };
 		F628BA6725422CE4000F42B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F628BA862542315D000F42B9 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
+		F628BA8B25423173000F42B9 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		F628BA9025423357000F42B9 /* StarshipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsViewController.swift; sourceTree = "<group>"; };
+		F628BA95254233E8000F42B9 /* PeopleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleInfo.swift; sourceTree = "<group>"; };
+		F628BA9A25424102000F42B9 /* StarshipInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipInfo.swift; sourceTree = "<group>"; };
+		F628BA9F25424116000F42B9 /* PlanetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfo.swift; sourceTree = "<group>"; };
+		F628BAA42542485B000F42B9 /* PeopleDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailsController.swift; sourceTree = "<group>"; };
+		F628BAA925424E77000F42B9 /* StarshipDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailsController.swift; sourceTree = "<group>"; };
+		F628BAAE25424E8E000F42B9 /* PlanetDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +124,15 @@
 				F628BA4C25422CE3000F42B9 /* Assets.xcassets */,
 				F628BA4E25422CE3000F42B9 /* LaunchScreen.storyboard */,
 				F628BA5125422CE3000F42B9 /* Info.plist */,
+				F628BA862542315D000F42B9 /* PlanetsViewController.swift */,
+				F628BA8B25423173000F42B9 /* PeopleViewController.swift */,
+				F628BA9025423357000F42B9 /* StarshipsViewController.swift */,
+				F628BA95254233E8000F42B9 /* PeopleInfo.swift */,
+				F628BA9A25424102000F42B9 /* StarshipInfo.swift */,
+				F628BA9F25424116000F42B9 /* PlanetInfo.swift */,
+				F628BAA42542485B000F42B9 /* PeopleDetailsController.swift */,
+				F628BAA925424E77000F42B9 /* StarshipDetailsController.swift */,
+				F628BAAE25424E8E000F42B9 /* PlanetDetailsController.swift */,
 			);
 			path = SWCatalog;
 			sourceTree = "<group>";
@@ -258,9 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F628BA9125423357000F42B9 /* StarshipsViewController.swift in Sources */,
+				F628BAA025424116000F42B9 /* PlanetInfo.swift in Sources */,
+				F628BAAF25424E8E000F42B9 /* PlanetDetailsController.swift in Sources */,
+				F628BA8C25423173000F42B9 /* PeopleViewController.swift in Sources */,
+				F628BA872542315D000F42B9 /* PlanetsViewController.swift in Sources */,
+				F628BAAA25424E77000F42B9 /* StarshipDetailsController.swift in Sources */,
 				F628BA4825422CE0000F42B9 /* ViewController.swift in Sources */,
+				F628BA96254233E8000F42B9 /* PeopleInfo.swift in Sources */,
 				F628BA4425422CE0000F42B9 /* AppDelegate.swift in Sources */,
+				F628BAA52542485C000F42B9 /* PeopleDetailsController.swift in Sources */,
 				F628BA4625422CE0000F42B9 /* SceneDelegate.swift in Sources */,
+				F628BA9B25424103000F42B9 /* StarshipInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
