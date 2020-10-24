@@ -16,7 +16,23 @@ class PlanetResidentViewCell: UITableViewCell {
     @IBOutlet weak var resident: UIButton!
 }
 
+class SpinnerViewController: UIViewController {
+    var spinner = UIActivityIndicatorView(style: .large)
+
+    override func loadView() {
+        view = UIView()
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        view.addSubview(spinner)
+
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+}
+
 class PlanetDetailsController: UIViewController, UITableViewDataSource {
+    let spinner = SpinnerViewController()
     var descriptors = ["Information", "Residents"]
     var data : [(String, String?)] = []
     var info : PlanetInfo? {
@@ -24,6 +40,9 @@ class PlanetDetailsController: UIViewController, UITableViewDataSource {
             DispatchQueue.main.async {
                 self.buildData()
                 self.details.reloadData()
+                self.spinner.willMove(toParent: nil)
+                self.spinner.view.removeFromSuperview()
+                self.spinner.removeFromParent()
             }
         }
     }
@@ -32,6 +51,10 @@ class PlanetDetailsController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
         self.buildData()
         details.dataSource = self
     }
@@ -79,6 +102,7 @@ class PlanetDetailsController: UIViewController, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Residents", for: indexPath) as! PlanetResidentViewCell
             let path = self.info?.residents[indexPath.row].lastPathComponent ?? "0"
+            cell.resident.setTitle("Resident \(indexPath.row)", for: .normal)
             cell.resident.tag = Int(path) ?? 0
             return cell
         }

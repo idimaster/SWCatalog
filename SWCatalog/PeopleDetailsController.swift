@@ -92,6 +92,7 @@ class PeopleDetailsController: UIViewController, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Starship", for: indexPath) as! PersonStarshipViewCell
             let path = self.info?.starships[indexPath.row].lastPathComponent ?? "0"
+            cell.starship.setTitle("Starship \(indexPath.row)", for: .normal)
             cell.starship.tag = Int(path) ?? 0
             return cell
         }
